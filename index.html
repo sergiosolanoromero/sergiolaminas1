@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Láminas de riego · Sergio Solano Romero</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap">
+<style>
+:root{--bg:#0b3a9c;--bg2:#08297a;--panel:#062270;--line:#2a5bd0;--y:#ffd60a;--g:#5aeb78;--ink:#e6efff;--err:#ff9d8a;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#082d84;--bg2:#061f5e;--panel:#051a55;--line:#2450b8}}
+:root[data-theme="dark"]{--bg:#082d84;--bg2:#061f5e;--panel:#051a55;--line:#2450b8}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;font-family:Lato,"Segoe UI",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--bg),var(--bg2));line-height:1.45}
+.wrap{max-width:1100px;margin:0 auto;padding:28px 18px 48px}
+.perfil{display:flex;gap:18px;align-items:center;background:var(--panel);border:2px solid var(--line);border-left:6px solid var(--y);border-radius:18px;padding:18px 22px;margin-bottom:26px}
+.ini{flex:none;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:1.35rem;letter-spacing:.02em;color:var(--y);border:3px solid var(--g);background:var(--bg2)}
+.perfil .nom{margin:0;font-size:clamp(1.25rem,3.2vw,1.7rem);font-weight:900;color:var(--y);line-height:1.15}
+.perfil .tit{margin:2px 0 0;font-weight:700;color:var(--g);font-size:1.02rem}
+.perfil .svc{margin:8px 0 0;font-size:.95rem;color:var(--ink);opacity:.95}
+.perfil .svc span{white-space:nowrap}
+.perfil .svc i{font-style:normal;color:var(--g);margin:0 6px}
+@media(max-width:560px){.perfil{flex-direction:column;align-items:flex-start;padding:16px}}
+.rv{margin-top:26px}
+.rv h2.t{margin:0 0 4px;font-size:1.5rem;font-weight:900;color:var(--y)}
+.rv .lead{margin:0 0 18px;color:var(--g)}
+.rv .stack{display:grid;gap:16px}
+.rv svg{width:100%;height:auto;display:block;border:2px solid var(--line);border-radius:14px;background:linear-gradient(180deg,#5aa6ee,#cfe6fb)}
+.rv .dims{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 22px}
+@media(max-width:560px){.rv .dims{grid-template-columns:1fr}}
+.rv .dims div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:6px 0}
+.rv .dims span{opacity:.9}.rv .dims b{color:var(--y);text-align:right}
+.rv .hint{font-size:.85rem;opacity:.85;margin:4px 0 0}
+.pie{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);font-size:.9rem;color:var(--ink);opacity:.9}
+.pie b{color:var(--y)}
+h1{margin:0;font-size:clamp(1.7rem,4.5vw,2.6rem);font-weight:900;color:var(--y);letter-spacing:-.01em}
+.sub{margin:6px 0 24px;color:var(--g);font-size:1.05rem}
+.grid{display:grid;grid-template-columns:minmax(0,370px) minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:2px solid var(--line);border-radius:18px;padding:20px}
+.card h2{margin:0 0 14px;font-size:1.15rem;color:var(--y)}
+label{display:block;font-weight:700;color:var(--g);font-size:.95rem;margin:12px 0 4px}
+label small{font-weight:400;color:var(--ink);opacity:.8}
+input,select{width:100%;padding:11px 12px;font:inherit;font-size:1.05rem;color:var(--ink);background:var(--bg2);border:2px solid var(--line);border-radius:10px}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--y);outline-offset:2px}
+input.bad{border-color:var(--err)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btns{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+button{font:inherit;font-weight:700;border-radius:10px;padding:11px 16px;cursor:pointer;border:2px solid var(--y)}
+.main{background:var(--y);color:#062270;flex:1}
+.ghost{background:transparent;color:var(--y)}
+.opt{margin-top:18px;padding-top:6px;border-top:1px dashed var(--line)}
+.opt h3{margin:12px 0 0;font-size:1rem;color:var(--y)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.res{grid-template-columns:1fr}}
+.m{border:2px solid var(--g);border-radius:16px;padding:16px;background:var(--bg2)}
+.m.h{border-color:var(--y)}
+.m h3{margin:0;font-size:1.05rem;color:var(--g)}
+.m.h h3{color:var(--y)}
+.big{font-size:3rem;font-weight:900;color:var(--y);line-height:1.1;margin:8px 0 0}
+.m.h .big{color:var(--g)}
+.big span{font-size:1.05rem;font-weight:700;color:var(--ink);margin-left:6px}
+.mes{color:var(--g);font-weight:700;margin:2px 0 10px}
+.m.h .mes{color:var(--y)}
+dl{margin:0;display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:.95rem}
+dt{opacity:.85}dd{margin:0;font-weight:700;text-align:right}
+.diff{margin-top:16px;padding:12px 16px;border-radius:12px;border:2px solid var(--y);background:var(--panel);font-weight:700;color:var(--y)}
+.diff b{color:var(--g)}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.95rem}
+th,td{padding:7px 6px;text-align:right;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--g)}td{font-weight:700}
+.empty{padding:34px 14px;text-align:center;color:var(--g);font-size:1.05rem}
+.msg{color:var(--err);font-weight:700;margin-top:10px;font-size:.95rem}
+details{margin-top:18px}
+summary{cursor:pointer;color:var(--y);font-weight:700}
+.f{font-family:"Courier New",monospace;background:var(--bg2);padding:10px 12px;border-radius:10px;margin:8px 0;font-size:.92rem;overflow-x:auto;white-space:pre}
+.note{font-size:.88rem;opacity:.85;margin:6px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="perfil" aria-label="Autor de la herramienta">
+<div class="ini" aria-hidden="true">SS</div>
+<div>
+<p class="nom">Sergio Solano Romero</p>
+<p class="tit">Ingeniero Agrícola</p>
+<p class="svc"><span>Diseño e instalación de sistemas de riego</span><i>·</i><span>Fertirriego</span><i>·</i><span>Conservación de suelos</span><i>·</i><span>Diseño y construcción de invernaderos</span></p>
+</div>
+</header>
+<h1>Calculadora de láminas de riego</h1>
+<p class="sub">Lámina neta, lámina de riego y frecuencia a partir del suelo, la raíz y la evapotranspiración del cultivo</p>
+<section class="rv" id="lamina" aria-label="Cálculo de láminas de riego">
+<div class="grid">
+<div class="card" aria-label="Datos del suelo y del cultivo">
+<h2>Datos del suelo y del cultivo</h2>
+<label for="lm_tex">Textura</label>
+<select id="lm_tex"><option value="">Seleccione…</option><option>Arenoso</option><option>Franco arenoso</option><option>Franco</option><option>Franco limoso</option><option>Franco arcilloso</option><option>Arcilloso</option></select>
+<label for="lm_cc">Capacidad de campo <small>(%)</small></label><input id="lm_cc" inputmode="decimal" placeholder="31,34">
+<label for="lm_pmp">Punto de marchitez permanente <small>(%)</small></label><input id="lm_pmp" inputmode="decimal" placeholder="15,16">
+<label for="lm_pr">Profundidad de la raíz <small>(cm)</small></label><input id="lm_pr" inputmode="decimal" placeholder="30">
+<label for="lm_da">Densidad aparente <small>(g/cm³)</small></label><input id="lm_da" inputmode="decimal" placeholder="0,97">
+<label for="lm_an">Área neta <small>(m²)</small></label><input id="lm_an" inputmode="decimal" placeholder="13500">
+<label for="lm_p">Coeficiente de agotamiento <small>(%)</small></label><input id="lm_p" inputmode="decimal" placeholder="45">
+<label for="lm_etr">ETr <small>(m³/día)</small></label><input id="lm_etr" inputmode="decimal" placeholder="50,625">
+<p class="hint">Las láminas se calculan sobre el área neta (superficie realmente regada). CC y PMP se ingresan como humedad gravimétrica (%), tal como las reporta el laboratorio.</p>
+<div class="btns"><button class="main" id="lm_calc">Calcular</button><button class="ghost" id="lm_ej">Cargar ejemplo</button><button class="ghost" id="lm_lim">Limpiar</button></div>
+<div class="msg" id="lm_msg" role="alert"></div>
+</div>
+<div id="lm_out" aria-live="polite"><div class="card"><div class="empty">Ingrese los datos para calcular las láminas y la frecuencia de riego.</div></div></div>
+</div>
+<details class="card" style="margin-top:20px"><summary>Fórmulas utilizadas</summary>
+<div class="f">Lr (L/m²) = (CC − PMP) / 100 · Profundidad de raíz (mm) · Da
+Lr (m³) = Lr (L/m²) · Área neta / 1000
+Ln (L/m²) = Lr (L/m²) · Agotamiento / 100
+Ln (m³) = Ln (L/m²) · Área neta / 1000
+Frecuencia (días) = Ln (m³) / ETr (m³/día)</div>
+<p class="note">La frecuencia se redondea hacia abajo para no pasar el agotamiento permitido. Es un cálculo preliminar: no incluye eficiencia de aplicación, lluvia, aporte capilar ni variación del Kc durante el ciclo.</p></details>
+</section>
+<footer class="pie">Herramienta elaborada por <b>Sergio Solano Romero</b>, Ingeniero Agrícola. El cálculo es preliminar y no sustituye el diseño técnico, los estudios de suelo ni la revisión de un profesional.</footer>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const num = s => { s=String(s).trim(); if(!s) return NaN; const v=parseFloat(s.replace(",",".")); return isFinite(v)?v:NaN };
+const fm = (v,d=2) => { const [i,dec]=v.toFixed(d).split("."); const ent=i.replace(/\B(?=(\d{3})+$)/g,"\u00a0"); return dec?ent+","+dec:ent };
+const IDS=["lm_cc","lm_pmp","lm_pr","lm_da","lm_an","lm_p","lm_etr"];
+const VACIO='<div class="card"><div class="empty">Ingrese los datos para calcular las láminas y la frecuencia de riego.</div></div>';
+function lamina(show){
+  IDS.forEach(i=>$(i).classList.remove("bad")); $("lm_msg").textContent="";
+  const cc=num($("lm_cc").value), pmp=num($("lm_pmp").value), pr=num($("lm_pr").value), da=num($("lm_da").value), an=num($("lm_an").value), p=num($("lm_p").value), etr=num($("lm_etr").value), A=an;
+  const ok={lm_cc:cc>0&&cc<=100,lm_pmp:pmp>=0&&pmp<100,lm_pr:pr>0,lm_da:da>0,lm_an:an>0,lm_p:p>0&&p<=100,lm_etr:etr>0};
+  const malos=IDS.filter(i=>!ok[i]);
+  if(malos.length){ if(show){malos.forEach(i=>$(i).classList.add("bad")); $("lm_msg").textContent="Complete todos los datos con valores válidos (los porcentajes entre 0 y 100 y el área mayor que 0)."} $("lm_out").innerHTML=VACIO; return }
+  if(cc<=pmp){ $("lm_cc").classList.add("bad"); $("lm_pmp").classList.add("bad"); $("lm_msg").textContent="La capacidad de campo debe ser mayor que el punto de marchitez permanente."; $("lm_out").innerHTML=VACIO; return }
+  const lrLm=(cc-pmp)/100*(pr*10)*da, lrM=lrLm*A/1000;
+  const lnLm=lrLm*p/100, lnM=lnLm*A/1000;
+  const fe=lnM/etr, f=Math.floor(fe);
+  const tex=$("lm_tex").value;
+  let frec, nota="";
+  if(f<1){ frec="< 1"; nota="La lámina neta no alcanza para un día de consumo: se requiere riego más de una vez al día (riegos pulsados) o un suelo con más reserva."; }
+  else { frec=String(f); }
+  $("lm_out").innerHTML=`<div class="stack">
+  <div class="m h"><h3>Frecuencia de riego</h3><div class="big">${frec}<span>${f===1?"día":"días"}</span></div><div class="mes">Exacto: ${fm(fe,2)} días${tex?" · textura "+tex.toLowerCase():""}</div>${nota?`<p class="hint">${nota}</p>`:""}</div>
+  <div class="m"><h3>Láminas calculadas</h3><div class="dims">
+  <div><span>Lr (L/m²)</span><b>${fm(lrLm,2)} L/m²</b></div><div><span>Lr (m³)</span><b>${fm(lrM,1)} m³</b></div>
+  <div><span>Ln (L/m²)</span><b>${fm(lnLm,2)} L/m²</b></div><div><span>Ln (m³)</span><b>${fm(lnM,1)} m³</b></div>
+  </div></div></div>`;
+}
+$("lm_calc").onclick=()=>lamina(true);
+IDS.concat(["lm_tex"]).forEach(i=>$(i).addEventListener("input",()=>lamina(false)));
+$("lm_ej").onclick=()=>{ $("lm_tex").value="Franco"; $("lm_cc").value="31,34"; $("lm_pmp").value="15,16"; $("lm_pr").value="30"; $("lm_da").value="0,97"; $("lm_an").value="13500"; $("lm_p").value="45"; $("lm_etr").value="50,625"; lamina(true) };
+$("lm_lim").onclick=()=>{ IDS.forEach(i=>$(i).value=""); $("lm_tex").value=""; lamina(false) };
+</script>
+</body>
+</html>
